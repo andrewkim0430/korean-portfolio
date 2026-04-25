@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>김학언 (Andrew Kim) — 포트폴리오</title>
+  <meta name="description" content="BCIT 출신 클라우드 & 인프라 개발자 김학언의 포트폴리오입니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Animated gradient backdrop -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <header class="container nav">
+    <a class="brand" href="#home">
+      <img src="assets/icons/logo.svg" alt="로고" width="28" height="28" />
+      <span>김학언</span>
+    </a>
+    <nav>
+      <a href="#projects">프로젝트</a>
+      <a href="#skills">기술</a>
+      <a href="#contact">연락처</a>
+      <button class="btn ghost" id="themeToggle" aria-label="다크 모드 전환">◐</button>
+      <a class="btn primary" href="assets/Resume.pdf" download>이력서</a>
+    </nav>
+  </header>
+
+  <main id="home" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1><span class="hi">안녕하세요, 저는</span> <span class="name">김학언입니다</span></h1>
+        <p class="subtitle"><span class="highlight">클라우드 시스템</span>, <span class="highlight">웹 앱</span>, <span class="highlight">백엔드 개발</span>을 전문으로 하는 IT 전문가입니다.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">프로젝트 보기</a>
+          <a class="btn ghost" href="#contact">연락하기</a>
+        </div>
+        <ul class="quick-facts">
+          <li>🚀 브리티시 컬럼비아 공과대학교 (BCIT) 컴퓨터 정보기술 (CIT) 디플로마 졸업</li>
+          <li>🧠 주요 기술: Python, JavaScript, 클라우드 (예: AWS), MySQL, Linux</li>
+          <li>🎯 클라우드 자동화, 스크립팅, 인프라 안정성에 열정을 가지고 있습니다</li>
+          <li>🌎 캐나다 BC주 버나비 거주</li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="card-3d tilt">
+          <img src="assets/images/thumbnail_IMG_2895.jpg" alt="앱 미리보기 목업">
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <h2>주요 프로젝트</h2>
+        <p>개요, 기술 스택, 주요 기능, 배운 점을 포함한 실제 프로젝트들입니다.</p>
+      </div>
+
+      <div class="project-list">
+
+        <!-- Project 1: Dice Game -->
+        <article class="card project-entry reveal">
+          <div class="project-thumb">
+            <img src="assets/images/GettyImages-81896744_kfaikl.jpg" alt="주사위 게임 시뮬레이터 스크린샷">
+          </div>
+
+          <div class="card-body">
+            <div class="project-header">
+              <div>
+                <h3>주사위 게임 시뮬레이터</h3>
+                <p class="project-meta">📚 BCIT COMP 2132 — 학교 프로젝트</p>
+              </div>
+              <div class="actions">
+                <a class="btn small primary" href="2023DiceprojectCOMP2132-main/index.html" target="_blank" rel="noopener">라이브 데모</a>
+                <a class="btn small ghost" href="https://github.com/andrewkim0430/2023DiceprojectCOMP2132" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+
+            <p class="project-overview">BCIT COMP 2132 수업을 위해 개발한 브라우저 기반 주사위 게임입니다. DOM 조작, 이벤트 기반 로직, 실시간 UI 업데이트 등 핵심 JavaScript 개념을 실습 형식으로 적용하기 위해 제작되었습니다.</p>
+
+            <div class="tech-stack">
+              <div class="tech-row"><span class="tech-label">프론트엔드</span><span class="tech-val">JavaScript, HTML, CSS</span></div>
+              <div class="tech-row"><span class="tech-label">도구</span><span class="tech-val">Git, VS Code</span></div>
+            </div>
+
+            <ul class="feature-list">
+              <li>확률 기반 결과를 갖는 주사위 무작위화</li>
+              <li>페이지 새로고침 없이 각 롤을 반영하는 실시간 DOM 업데이트</li>
+              <li>점수 추적 및 라운드 관리 로직</li>
+              <li>게임 리셋 및 승리 조건 감지</li>
+            </ul>
+
+            <details class="project-details">
+              <summary>문제 해결 &amp; 배운 점</summary>
+              <div class="details-body">
+                <h4>문제 해결</h4>
+                <p>초기 과제는 여러 번의 롤에 걸쳐 점수를 잃지 않고 게임 상태를 관리하는 것이었습니다. 상태를 하나의 JavaScript 객체에 중앙화하고 그 단일 진실 소스에서 UI를 업데이트하는 방식으로 해결했습니다.</p>
+                <h4>배운 점</h4>
+                <p>이벤트 기반 프로그래밍과 DOM이 상태 변화에 반응하는 방식을 깊이 이해하게 되었습니다. 게임 로직과 표시 로직을 분리하여 코드를 디버그하고 확장하기 쉽게 만드는 법을 배웠습니다.</p>
+                <h4>향후 개선 사항</h4>
+                <ul>
+                  <li>턴 기반 흐름을 갖춘 멀티플레이어 지원 추가</li>
+                  <li>CSS 트랜지션으로 주사위 롤 애니메이션 적용</li>
+                  <li>localStorage를 사용한 최고 점수 저장</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- Project 2: OpenAI Chat Internship -->
+        <article class="card project-entry reveal">
+          <div class="project-thumb">
+            <img src="immy-chat/jrdfgbvnhg.png" alt="OpenAI 채팅 학습 앱 스크린샷">
+          </div>
+
+          <div class="card-body">
+            <div class="project-header">
+              <div>
+                <h3>OpenAI 채팅 학습 앱</h3>
+                <p class="project-meta">💼 Immersio — 인턴십 프로젝트</p>
+              </div>
+              <div class="actions">
+                <span class="badge-private">비공개 / NDA</span>
+              </div>
+            </div>
+
+            <p class="project-overview">Immersio 인턴십 기간 중 개발한 AI 기반 언어 학습 채팅 플랫폼입니다. OpenAI API를 Django 백엔드 및 비동기 메시지 처리를 위한 Kafka와 통합하여 실시간 대화형 코칭을 제공하도록 설계되었습니다.</p>
+
+            <div class="tech-stack">
+              <div class="tech-row"><span class="tech-label">백엔드</span><span class="tech-val">Python, Django</span></div>
+              <div class="tech-row"><span class="tech-label">API</span><span class="tech-val">OpenAI API</span></div>
+              <div class="tech-row"><span class="tech-label">메시징</span><span class="tech-val">Kafka</span></div>
+              <div class="tech-row"><span class="tech-label">도구</span><span class="tech-val">Git, Postman</span></div>
+            </div>
+
+            <ul class="feature-list">
+              <li>문맥 인식 대화 응답을 위한 OpenAI API 통합</li>
+              <li>비동기 논블로킹 채팅 흐름을 위한 Kafka 메시지 큐</li>
+              <li>세션 및 사용자 컨텍스트를 관리하는 Django REST 백엔드</li>
+              <li>학습자 수준에 맞춘 언어 학습 프롬프트</li>
+            </ul>
+
+            <details class="project-details">
+              <summary>문제 해결 &amp; 배운 점</summary>
+              <div class="details-body">
+                <h4>문제 해결</h4>
+                <p>초기에 OpenAI에 대한 동기 API 호출이 채팅 UI에서 눈에 띄는 지연을 일으켰습니다. Kafka를 도입하여 요청-응답 사이클을 분리하는 것이 해결책이었습니다. 프론트엔드가 메시지를 보내면 Kafka가 AI 응답을 비동기적으로 전달하여 UI의 응답성을 유지합니다.</p>
+                <h4>배운 점</h4>
+                <p>서드파티 AI API를 프로덕션 Django 애플리케이션에 통합하는 방법과, 메시지 큐가 채팅 기반 시스템에서 실시간 응답성 문제를 해결하는 방법을 배웠습니다. 실제 엔터프라이즈 소프트웨어에서 사용되는 비동기 아키텍처 패턴을 경험했습니다.</p>
+                <h4>향후 개선 사항</h4>
+                <ul>
+                  <li>사용자 학습 진도 추적 및 어휘 기록 추가</li>
+                  <li>다국어 및 숙련도 수준 지원</li>
+                  <li>진정한 실시간 전달을 위한 WebSocket 구현</li>
+                </ul>
+                <h4>스크린샷</h4>
+                <div class="screenshot-gallery">
+                  <img src="immy-chat/jrdfgbvnhg.png" alt="Immy Chat — 중국어 응답">
+                  <img src="immy-chat/sdfsdv.png" alt="Immy Chat — 영어 대화">
+                  <img src="immy-chat/trdfghjy.png" alt="Immy Chat — 스페인어 응답">
+                  <img src="immy-chat/hgftgfj.png" alt="Immy Chat — 시스템 아키텍처 다이어그램">
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- Project 3: Loan Management System -->
+        <article class="card project-entry reveal">
+          <div class="project-thumb">
+            <img src="assets/images/project-ecommerce.svg" alt="대출 관리 시스템 스크린샷">
+          </div>
+
+          <div class="card-body">
+            <div class="project-header">
+              <div>
+                <h3>대출 관리 시스템</h3>
+                <p class="project-meta">💼 Cypress Hills Partners — 인턴십 프로젝트</p>
+              </div>
+              <div class="actions">
+                <span class="badge-private">비공개 / NDA</span>
+              </div>
+            </div>
+
+            <p class="project-overview">Cypress Hills Partners 인턴십 기간 중 개발한 풀스택 대출 관리 대시보드입니다. 수동 추적을 쿼리 가능하고 CRUD가 활성화된 관리 시스템으로 대체하여 직원들에게 고객 대출 기록 관리를 위한 구조화된 인터페이스를 제공하기 위해 구축되었습니다.</p>
+
+            <div class="tech-stack">
+              <div class="tech-row"><span class="tech-label">백엔드</span><span class="tech-val">NestJS</span></div>
+              <div class="tech-row"><span class="tech-label">프론트엔드</span><span class="tech-val">React, Refine</span></div>
+              <div class="tech-row"><span class="tech-label">데이터베이스</span><span class="tech-val">PostgreSQL</span></div>
+              <div class="tech-row"><span class="tech-label">API</span><span class="tech-val">GraphQL</span></div>
+              <div class="tech-row"><span class="tech-label">도구</span><span class="tech-val">Git, Postman</span></div>
+            </div>
+
+            <ul class="feature-list">
+              <li>고객 대출 기록에 대한 전체 CRUD 작업을 갖춘 GraphQL API</li>
+              <li>정렬 및 필터링 가능한 데이터 테이블을 갖춘 React + Refine 관리 UI</li>
+              <li>금융 기록 무결성을 위해 설계된 PostgreSQL 스키마</li>
+              <li>다양한 직원 접근 수준을 위한 역할 인식 뷰</li>
+            </ul>
+
+            <details class="project-details">
+              <summary>문제 해결 &amp; 배운 점</summary>
+              <div class="details-body">
+                <h4>문제 해결</h4>
+                <p>GraphQL과 Refine 프레임워크 모두 이 프로젝트 시작 시 처음 접하는 기술이었습니다. 빠르게 적응하기 위해 리졸버와 Refine 데이터 제공자가 어떻게 연결되는지 이해하는 소형 프로토타입을 먼저 만든 후, 그 이해를 실제 시스템에 적용했습니다. 이를 통해 통합 오류를 크게 줄일 수 있었습니다.</p>
+                <h4>배운 점</h4>
+                <p>GraphQL이 REST와 쿼리 유연성 측면에서 어떻게 다른지, 그리고 Refine이 일반적인 관리 UI 패턴(CRUD, 페이지네이션, 필터링)을 추상화하여 개발자가 비즈니스 로직에 집중할 수 있게 하는 방법을 배웠습니다. 실제 클라이언트 환경에서 타입화된 NestJS + PostgreSQL 백엔드 작업 경험도 쌓았습니다.</p>
+                <h4>향후 개선 사항</h4>
+                <ul>
+                  <li>대시보드 수준의 분석 추가 (대출 상태 요약, 연체 알림)</li>
+                  <li>보고용 CSV/PDF 기록 내보내기</li>
+                  <li>모든 기록 변경에 대한 감사 로그 구현</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <h2>기술 &amp; 도구</h2>
+        <p>견고하고 확장 가능한 솔루션을 제공하기 위해 사용하는 기술들입니다.</p>
+      </div>
+
+      <ul class="chips">
+        <li><img src="assets/images/python logo Image 2025년 11월 13일 오후 03_22_11.png" class="skill-icon"> Python</li>
+        <li><img src="assets/images/jslogo Image 2025년 11월 13일 오후 04_26_47.png" class="skill-icon"> JavaScript</li>
+        <li><img src="assets/images/html logo Image 2025년 11월 13일 오후 04_34_50.png" class="skill-icon"> HTML</li>
+        <li><img src="assets/images/Css Image 2025년 11월 13일 오후 04_38_36.png" class="skill-icon"> CSS</li>
+
+        <li><img src="assets/images/Flask Image 2025년 11월 13일 오후 04_40_58.png" class="skill-icon"> Flask</li>
+        <li><img src="assets/images/django logo Image 2025년 11월 13일 오후 04_48_42.png" class="skill-icon"> Django</li>
+        <li><img src="assets/images/react ChatGPT Image 2025년 11월 13일 오후 04_53_46.png" class="skill-icon"> React</li>
+        <li><img src="assets/images/node ChatGPT Image 2025년 11월 13일 오후 04_56_18.png" class="skill-icon"> Node.js</li>
+
+        <li><img src="assets/images/sql ChatGPT Image 2025년 11월 13일 오후 04_58_45.png" class="skill-icon"> SQL</li>
+        <li><img src="assets/images/mysql ChatGPT Image 2025년 11월 13일 오후 05_03_34.png" class="skill-icon"> MySQL</li>
+        <li><img src="assets/images/postgreglChatGPT Image 2025년 11월 13일 오후 05_13_04.png" class="skill-icon"> PostgreSQL</li>
+
+        <li><img src="assets/images/linux ChatGPT Image 2025년 11월 13일 오후 05_17_13.png" class="skill-icon"> Linux</li>
+        <li><img src="assets/images/aws ChatGPT Image 2025년 11월 13일 오후 05_19_29.png" class="skill-icon"> AWS</li>
+        <li><img src="assets/images/docker ChatGPT Image 2025년 11월 13일 오후 05_22_14.png" class="skill-icon"> Docker</li>
+
+        <li><img src="assets/images/git Image 2025년 11월 13일 오후 05_24_42.png" class="skill-icon"> Git</li>
+        <li><img src="assets/images/cloud ChatGPT Image 2025년 11월 13일 오후 05_27_12.png" class="skill-icon"> 클라우드 컴퓨팅</li>
+        <li><img src="assets/images/networking ChatGPT Image 2025년 11월 13일 오후 05_35_33.png" class="skill-icon"> 네트워킹</li>
+        <li>UX/UI</li>
+        <li><img src="assets/images/imgbin-bash-shell-script-bourne-shell-scripting-language-unix-shell-shell-fUrS4S9DX6YmSQwDf8M6maQjr.jpg" class="skill-icon"> Bash 스크립팅</li>
+        <li>IT 인프라</li>
+        <li>웹 디자인</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <h2>연락처</h2>
+        <p>협업하고 싶거나 프로젝트가 있으신가요? 이야기 나눠봐요.</p>
+      </div>
+      <form class="contact" action="https://formsubmit.co/hakeon0417@gmail.com" method="POST">
+        <div class="field">
+          <label for="name">이름</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div class="field half">
+          <label for="email">이메일</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="field half">
+          <label for="reason">문의 유형</label>
+          <select id="reason" name="reason">
+            <option>프로젝트 문의</option>
+            <option>협업 제안</option>
+            <option>기타</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">메시지</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">메시지 보내기</button>
+          <span id="formStatus" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>© <span id="year"></span> 김학언 — All rights reserved.</p>
+    <div class="socials">
+      <a href="mailto:hakeon0417@gmail.com" aria-label="이메일">✉</a>
+      <a href="https://github.com/andrewkim0430" aria-label="GitHub" target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77a5.07 5.07 0 0 0-.09-3.73S18.73.69 15 3.08a13.38 13.38 0 0 0-6 0C5.27.69 4.09 1.04 4.09 1.04A5.07 5.07 0 0 0 4 4.77a5.44 5.44 0 0 0-1.5 3.76c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 8 21.13V24"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/andrew-kim-002a25226/" aria-label="LinkedIn" target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-14h4v2m-8 12h-4v-14h4v14z"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* Define SASS variables for colors and fonts */
+$primary-color: #b51c1c;
+$secondary-color: #f5da42;
+$background-color: #222222;
+$font-family: 'Arial', sans-serif;
+
+/* Mixin for button styles */
+@mixin button-style {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: $font-family;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  background-color: $primary-color;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+/* General styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  background-color: $background-color;
+  color: #fff;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: $primary-color;
+  text-align: center;
+}
+
+h2 {
+  color: $primary-color;
+}
+
+/* Game board styling */
+.game-board {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Styling for player and computer sections */
+.player,
+.computer {
+  margin-bottom: 20px;
+}
+
+.player {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Styling for dice display */
+.dice-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styling for dice elements */
+.dice {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  animation: dice-roll 1s ease infinite; /* Apply the dice-roll animation to the dice */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Game info styling */
+.game-info {
+  margin-bottom: 20px;
+}
+
+/* Styling for winner display */
+.winner-display {
+  font-size: 24px;
+  font-weight: bold;
+  color: $primary-color;
+  text-align: center;
+}
+
+/* Dice animation */
+@keyframes dice-roll {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+  }
+  100% {
+    transform: rotateX(720deg) rotateY(1440deg) rotateZ(720deg);
+  }
+}
+
+/* Styling for buttons */
+.roll-button,
+.reset-button {
+  @include button-style;
+  margin-right: 10px;
+}
+/* Add specific background images for each dice face */
+#player-dice-1 {
+    background-image: url('/project/images/asdadas.png');
+  }
+  
+  #player-dice-2 {
+    background-image: url('/project/images/557px-Dice-3-b.png');
+  }
+  
+  /* Add background images for the computer's dice as well */
+  #computer-dice-1 {
+    background-image: url('/project/images/dice-312623_640.png');
+  }
+  
+  #computer-dice-2 {
+    background-image: url('/project/images/dice-312622_960_720.png');
+  }

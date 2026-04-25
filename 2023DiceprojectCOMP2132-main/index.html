@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game Final Project</title>
+
+    <script src="/2023DiceprojectCOMP2132-main/scripts.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="/2023DiceprojectCOMP2132-main/styles.css">
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Dice Game</h1>
+        </header>
+        <main>
+          <div class="player">
+        <h2>Player</h2>
+        <div class="dice-display">
+          <div class="dice" id="player-dice-1">1</div>
+          <div class="dice" id="player-dice-2">2</div>
+        </div>
+        <p>Round Score: <span id="player-round-score">0</span></p>
+        <p>Total Score: <span id="player-total-score">0</span></p>
+      </div>
+      <div class="computer">
+        <h2>Computer</h2>
+        <div class="dice-display">
+          <div class="dice" id="computer-dice-1">1</div>
+          <div class="dice" id="computer-dice-2">2</div>
+        </div>
+        <p>Round Score: <span id="computer-round-score">0</span></p>
+        <p>Total Score: <span id="computer-total-score">0</span></p>
+      </div>
+      <div class="game-info">
+        <p>Round: <span id="round-number">1</span>/3</p>
+        <p>Winner: <span id="winner-display">-</span></p>
+      </div>
+      <button id="roll-button" class="roll-button">Roll Dice</button>
+      <button id="reset-button" class="reset-button">Reset Game</button>
+    </div>
+    <div id="dice-container">
+      <div id="player-dice-1" class="dice"></div>
+      <div id="player-dice-2" class="dice"></div>
+      <div id="computer-dice-1" class="dice"></div>
+      <div id="computer-dice-2" class="dice"></div>
+    </div>
+  </div>
+        
+        </main>
+     <footer>
+          <p>Copyleft 20** <span>&copy;</span> - COMP2132</p>
+      </footer>       
+    </div>
+</body>
+</html>
