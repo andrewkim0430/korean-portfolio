@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Suzette's Café – Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="index.html#top" class="brand">
+      <img src="images/suzettes_logo_upscaled.png" alt="Suzette's Café logo">
+      <span>Suzette's Café</span>
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="order.html">Order Online</a></li>
+        <li><a href="account.html" id="nav-account">Account</a></li>
+        <li><a href="#" id="nav-logout" style="display:none;">Log Out</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="section">
+    <div class="container cart-page">
+
+      <h2>Your Pickup Order</h2>
+      <p class="section-subtitle">Review your order and confirm pickup details.</p>
+
+      <div class="tips-box tips-box--page">
+        <h4>Quick Tips</h4>
+        <ul>
+          <li><strong>Combos:</strong> Sandwich/Wrap combos include small soup, small chili, or Caesar/Garden salad.</li>
+          <li><strong>Allergies:</strong> Add allergy notes in the “Notes” field on the Order page.</li>
+          <li><strong>Pickup time:</strong> If you change pickup time, go back to <a href="order.html">Order page</a> and edit.</li>
+          <li><strong>Call items:</strong> Catering “Call for inquiry” items can’t be ordered online in the prototype.</li>
+        </ul>
+      </div>
+
+      <div class="cart-box">
+        <ul id="cart-items" class="cart-items"></ul>
+
+        <p id="cart-empty" class="cart-empty">Your cart is empty.</p>
+
+        <!-- ✅ NEW: subtotal/tax/total rows (works with your app.js) -->
+        <div id="cart-summary" class="cart-summary" style="display:none;">
+          <div class="cart-summary-row"><strong>Subtotal:</strong><span id="cart-subtotal">$0.00</span></div>
+          <div class="cart-summary-row"><strong id="cart-tax-label">GST (5%)</strong><span id="cart-tax">$0.00</span></div>
+          <div class="cart-summary-row" id="cart-tip-row" style="display:none;"><strong>Tip</strong><span id="cart-tip">$0.00</span></div>
+          <div class="cart-summary-row cart-summary-total"><strong>Total:</strong><span id="cart-total">$0.00</span></div>
+        </div>
+
+        <div class="tip-options" id="tip-options">
+          <label class="tip-options-label">Add a tip (optional)</label>
+          <div class="tip-buttons">
+            <button type="button" class="tip-btn" data-tip="none">No tip</button>
+            <button type="button" class="tip-btn" data-tip="15">15%</button>
+            <button type="button" class="tip-btn" data-tip="18">18%</button>
+            <button type="button" class="tip-btn" data-tip="20">20%</button>
+          </div>
+          <div class="tip-custom-row">
+            <label for="tip-custom-input">Custom:</label>
+            <span class="tip-custom-prefix">$</span>
+            <input type="number" id="tip-custom-input" min="0" step="0.25" placeholder="0.00" aria-label="Custom tip amount">
+          </div>
+        </div>
+
+        <button id="clear-btn" class="btn-outline" type="button" onclick="clearCart()">Clear Order</button>
+      </div>
+
+      <div class="pickup-form">
+        <h3>Pickup Information</h3>
+
+        <p class="muted" style="margin-top:0.35rem;">
+          If you need to change name/phone/pickup time, go back and edit.
+          <a href="order.html" style="text-decoration:underline;">Edit pickup info</a>
+        </p>
+
+        <button id="checkout-btn" class="btn" type="button" onclick="placeOrder()">
+          Place Pickup Order
+        </button>
+
+        <p class="cart-disclaimer">
+          This is a prototype. In production, this button would send your order directly to the café.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" style="display:none;">
+  <div class="overlay-content">
+
+    <!-- REVIEW SCREEN -->
+    <div id="overlay-review">
+      <h3 style="margin-top:0;">Review Your Order</h3>
+      <p class="overlay-small" style="margin-top:6px;">
+        Please confirm your pickup details before submitting.
+      </p>
+
+      <div class="overlay-block" style="margin-top:12px;">
+        <strong>Name:</strong> <span id="review-name"></span><br>
+        <strong>Phone:</strong> <span id="review-phone"></span><br>
+        <strong>Pickup:</strong> <span id="review-pickup"></span><br>
+        <strong>Notes:</strong> <span id="review-notes"></span>
+      </div>
+
+      <div class="overlay-block" style="margin-top:12px;">
+        <strong>Items:</strong>
+        <div id="review-items" style="margin-top:6px;"></div>
+
+        <!-- ✅ NEW: overlay totals -->
+        <div class="overlay-totals" style="margin-top:12px; border-top:1px solid rgba(0,0,0,0.12); padding-top:10px;">
+          <div class="cart-summary-row"><strong>Subtotal:</strong> <span id="review-subtotal">$0.00</span></div>
+          <div class="cart-summary-row"><strong id="review-tax-label">GST (5%)</strong> <span id="review-tax">$0.00</span></div>
+          <div class="cart-summary-row" id="review-tip-row" style="display:none;"><strong>Tip</strong> <span id="review-tip">$0.00</span></div>
+          <div class="cart-summary-row cart-summary-total"><strong>Total:</strong> <span id="review-total">$0.00</span></div>
+        </div>
+      </div>
+
+      <div class="overlay-actions" style="display:flex; gap:10px; margin-top:14px;">
+        <button type="button" class="btn-outline" onclick="closeOverlay()">Go Back</button>
+        <button type="button" class="btn" onclick="confirmOrder()">Confirm Order</button>
+      </div>
+    </div>
+
+    <!-- FINAL CONFIRMATION SCREEN -->
+    <div id="overlay-final" style="display:none;">
+      <h3 id="overlay-message" style="margin-top:0;"></h3>
+      <p id="overlay-details"></p>
+      <button type="button" class="btn" onclick="closeOverlay()">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <p>&copy; <span id="year"></span> Suzette's Café</p>
+  </div>
+</footer>
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

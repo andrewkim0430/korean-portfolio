@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Suzette's Café – Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="images/suzettes_logo_upscaled.png" alt="Suzette's Café logo">
+        <span>Suzette's Café</span>
+      </a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="account.html" id="nav-account">Account</a></li>
+          <li><a href="#" id="nav-logout" style="display:none;">Log Out</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section">
+      <div class="container">
+        <h1 style="margin-bottom:0.4rem;">Account</h1>
+        <p class="section-subtitle" style="margin-top:0;">
+          Log in to save and view your recent pickup orders (demo).
+        </p>
+
+        <div class="tips-box tips-box--page">
+          <h4>Tips</h4>
+          <ul>
+            <li><strong>Save orders:</strong> Log in before placing an order; confirmed orders will appear under Recent Orders.</li>
+            <li><strong>Demo:</strong> Accounts and orders are stored in your browser (localStorage) for this prototype.</li>
+            <li><strong>New here?</strong> Create an account above, then go to <a href="order.html">Order Online</a> to place a pickup order.</li>
+          </ul>
+        </div>
+
+        <!-- Logged out: Login / Sign Up tabs -->
+        <div id="account-logged-out" class="account-logged-out" style="display:block;">
+          <div class="account-tabs" role="tablist">
+            <button type="button" class="account-tab active" data-tab="login" role="tab" aria-selected="true" id="tab-login">Log In</button>
+            <button type="button" class="account-tab" data-tab="signup" role="tab" aria-selected="false" id="tab-signup">Sign Up</button>
+          </div>
+          <div class="account-panels">
+            <div id="panel-login" class="account-card account-panel" role="tabpanel" aria-labelledby="tab-login">
+              <h2 class="account-panel-title">Log In</h2>
+              <form id="login-form">
+              <label class="form-label" for="login-email">Email</label>
+              <input class="form-input" id="login-email" type="email" placeholder="you@email.com" autocomplete="email">
+
+              <label class="form-label" for="login-password">Password</label>
+              <input class="form-input" id="login-password" type="password" placeholder="Your password" autocomplete="current-password">
+
+              <button class="btn-primary" type="submit">Log In</button>
+            </form>
+              <p class="account-switch">Don't have an account? <button type="button" class="account-switch-link" data-goto="signup">Sign up</button></p>
+              <p class="muted account-demo-note">Accounts are stored in your browser (localStorage).</p>
+            </div>
+            <div id="panel-signup" class="account-card account-panel hidden" role="tabpanel" aria-labelledby="tab-signup">
+              <h2 class="account-panel-title">Sign Up</h2>
+              <form id="signup-form">
+              <label class="form-label" for="signup-name">Name</label>
+              <input class="form-input" id="signup-name" type="text" placeholder="Your name" autocomplete="name">
+
+              <label class="form-label" for="signup-email">Email</label>
+              <input class="form-input" id="signup-email" type="email" placeholder="you@email.com" autocomplete="email">
+
+              <label class="form-label" for="signup-password">Password</label>
+              <input class="form-input" id="signup-password" type="password" placeholder="Create a password" autocomplete="new-password">
+
+              <button class="btn-primary" type="submit">Create Account</button>
+            </form>
+            <p class="account-switch">Already have an account? <button type="button" class="account-switch-link" data-goto="login">Log in</button></p>
+            <p class="muted account-demo-note">Use a simple password for this demo.</p>
+          </div>
+          </div>
+        </div>
+
+        <!-- Logged in view -->
+        <div id="account-logged-in" style="display:none;">
+          <div class="account-topbar">
+            <div>
+              <h2 style="margin:0;">Welcome, <span id="account-user-name">Guest</span></h2>
+              <p class="muted" style="margin:0.25rem 0 0;">
+                Signed in as <span id="account-user-email">—</span>
+              </p>
+            </div>
+
+            <div class="account-actions">
+              <button class="btn-outline" id="logout-btn" type="button">Log Out</button>
+            </div>
+          </div>
+
+          <div class="account-card" style="margin-top:1rem;">
+            <h3 style="margin-top:0;">Recent Orders</h3>
+            <p class="muted" style="margin-top:0;">
+              Orders appear here after you confirm an order on the cart page.
+            </p>
+
+            <div id="orders-empty" class="muted" style="display:none;">
+              No saved orders yet. Place an order while logged in and it will show up here.
+            </div>
+
+            <div id="orders-list" class="orders-list"></div>
+
+            <div style="margin-top:1rem;">
+              <button class="btn-outline" id="clear-orders-btn" type="button">
+                Clear My Order History
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Suzette's Café · Port Coquitlam, BC</p>
+      <p class="footer-sub">Online ordering portal prototype.</p>
+    </div>
+  </footer>
+
+  <!-- Load app.js (single source of truth for auth + account UI) -->
+  <script src="scripts/app.js"></script>
+</body>
+</html>

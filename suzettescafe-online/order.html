@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Suzette's Café – Order Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html#top" class="brand">
+        <img src="images/suzettes_logo_upscaled.png" alt="Suzette's Café logo">
+        <span>Suzette's Café</span>
+      </a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="account.html" id="nav-account">Account</a></li>
+          <li><a href="#" id="nav-logout" style="display:none;">Log Out</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <h2>Order for Pickup</h2>
+            <p class="section-subtitle">
+              Build your order, choose a pickup time, and pay at the counter when you arrive.
+              Menu items and pricing can be updated later.
+            </p>
+          </div>
+
+          <div class="category-filters">
+            <button class="filter-btn active" onclick="setCategoryFilter('all')">All</button>
+            <button class="filter-btn" onclick="setCategoryFilter('breakfast')">Breakfast</button>
+            <button class="filter-btn" onclick="setCategoryFilter('sandwich')">Sandwiches</button>
+            <button class="filter-btn" onclick="setCategoryFilter('wrap')">Wraps</button>
+            <button class="filter-btn" onclick="setCategoryFilter('soup')">Chili & Soup</button>
+            <button class="filter-btn" onclick="setCategoryFilter('salad')">Fresh Salads</button>
+            <button class="filter-btn" onclick="setCategoryFilter('special')">Daily Special</button>
+            <button class="filter-btn" data-category="extras" onclick="setCategoryFilter('extras')">Extras</button>
+            <button class="filter-btn" onclick="setCategoryFilter('catering')">Catering</button>
+          </div>
+        </div>
+
+        <div class="order-layout">
+          <!-- Menu list -->
+          <div class="menu-grid" id="menu-grid"></div>
+
+          <!-- Cart / order panel -->
+          <aside class="cart">
+            <h3>Your Order (Cart)</h3>
+
+            <p class="cart-empty" id="cart-empty">
+              Your cart is empty. Add items from the menu to start an order.
+            </p>
+
+            <ul class="cart-items" id="cart-items"></ul>
+
+            <div class="cart-summary" id="cart-summary">
+              <div class="cart-summary-row"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+              <div class="cart-summary-row"><span id="cart-tax-label">Tax</span><span id="cart-tax">$0.00</span></div>
+              <div class="cart-summary-row" id="cart-tip-row" style="display:none;"><span>Tip</span><span id="cart-tip">$0.00</span></div>
+              <div class="cart-summary-row cart-summary-total"><strong>Total</strong><strong id="cart-total">$0.00</strong></div>
+            </div>
+
+            <div class="tip-options" id="tip-options">
+              <label class="tip-options-label">Add a tip (optional)</label>
+              <div class="tip-buttons">
+                <button type="button" class="tip-btn" data-tip="none" id="tip-btn-none">No tip</button>
+                <button type="button" class="tip-btn" data-tip="15">15%</button>
+                <button type="button" class="tip-btn" data-tip="18">18%</button>
+                <button type="button" class="tip-btn" data-tip="20">20%</button>
+              </div>
+              <div class="tip-custom-row">
+                <label for="tip-custom-input">Custom:</label>
+                <span class="tip-custom-prefix">$</span>
+                <input type="number" id="tip-custom-input" min="0" step="0.25" placeholder="0.00" aria-label="Custom tip amount">
+              </div>
+            </div>
+
+            <div class="order-form">
+              <div class="order-form-group">
+                <label for="customer-name">Name *</label>
+                <input id="customer-name" placeholder="Your full name">
+              </div>
+
+              <div class="order-form-group">
+                <label for="customer-phone">Phone *</label>
+                <input id="customer-phone" placeholder="e.g. 604-555-1234">
+              </div>
+
+              <div class="order-form-group">
+                <label for="pickup-time">Pickup Time *</label>
+                <select id="pickup-time">
+                  <option value="">Select a pickup time</option>
+                  <option value="ASAP">ASAP (about 10–15 minutes)</option>
+                  <option value="15">In 15 minutes</option>
+                  <option value="30">In 30 minutes</option>
+                  <option value="45">In 45 minutes</option>
+                </select>
+                <!-- app.js will auto-insert the live clock hint under this -->
+              </div>
+
+              <div class="order-form-group">
+                <label for="order-notes">Order Notes (optional)</label>
+                <textarea id="order-notes" placeholder="Allergies, milk preference, extra instructions..."></textarea>
+              </div>
+            </div>
+
+            <div class="cart-actions">
+              <button id="checkout-btn" type="button" onclick="goToCart()">
+                Review & Confirm
+              </button>
+              <button id="clear-btn" type="button" onclick="clearCart()">
+                Clear Order
+              </button>
+              <p class="cart-note">
+                This is a prototype. In production, this button would send your order directly to the café.
+              </p>
+            </div>
+
+            <!-- ✅ NEW: Tips box (no JS needed) -->
+            <div class="tips-box">
+              <h4>Tips</h4>
+              <ul>
+                <li><strong>Combos:</strong> Sandwiches & wraps can be ordered as a combo (small soup/chili or Caesar/garden salad).</li>
+                <li><strong>Breakfast:</strong> Served until <strong>11:00 AM</strong>.</li>
+                <li><strong>Daily Special:</strong> Served from <strong>11:00 AM</strong>.</li>
+                <li><strong>Catering:</strong> Minimum order <strong>$90</strong>. Some items show <em>“Call for inquiry”</em>.</li>
+                <li><strong>Phone number:</strong> Use a real number so we can reach you if anything is unclear.</li>
+              </ul>
+            </div>
+
+            <div class="third-party-note">
+              <p>
+                Prefer delivery? Find Suzette’s Café on
+                <a
+                  href="https://www.ubereats.com/ca/store/suzettes-cafe/ObRweIRmX4KIFZy8pAsAPQ?srsltid=AfmBOooJyZjGKLC4mI3yt_dJ6weAVK7rHBK4cCGwpIv83NIpJQhO6qjg"
+                  class="third-party-pill"
+                  target="_blank"
+                  rel="noopener"
+                >Uber Eats</a>
+                and
+                <a
+                  href="https://www.skipthedishes.com/suzettes-cafe-kingsway"
+                  class="third-party-pill"
+                  target="_blank"
+                  rel="noopener"
+                >SkipTheDishes</a>.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Suzette's Café · Port Coquitlam, BC</p>
+      <p class="footer-sub">Online ordering portal prototype.</p>
+    </div>
+  </footer>
+
+  <!-- ✅ IMPORTANT: Use the same JS file on every page -->
+  <script src="scripts/app.js"></script>
+</body>
+</html>

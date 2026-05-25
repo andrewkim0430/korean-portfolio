@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Suzette's Café – Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html#top" class="brand">
+        <img src="images/suzettes_logo_upscaled.png" alt="Suzette's Café logo">
+        <span>Suzette's Café</span>
+      </a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="account.html" id="nav-account">Account</a></li>
+          <li><a href="#" id="nav-logout" style="display:none;">Log Out</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section">
+      <div class="container contact-layout">
+        <div class="contact-block">
+          <h2>Visit Suzette’s Café</h2>
+          <p class="section-subtitle">
+            Port Coquitlam, BC
+          </p>
+
+          <p><strong>Address:</strong> #205-1530 Kingsway Ave, Port Coquitlam, BC</p>
+
+          <p>
+            <strong>Phone:</strong>
+            <a href="tel:+16045550134">(604) 464-1199</a>
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:hello@suzettescafe.ca">suzettescafe@gmail.com</a>
+          </p>
+
+          <div class="hours-table">
+            <div><span>Mon–Fri</span><span>7:00 AM – 3:00 PM</span></div>
+            <div><span>Sat–Sun</span><span>Closed</span></div>
+          </div>
+
+          <p style="margin-top:0.8rem;font-size:0.9rem;">
+            For delivery, please continue using
+            <a
+              href="https://www.ubereats.com/ca/store/suzettes-cafe/ObRweIRmX4KIFZy8pAsAPQ?srsltid=AfmBOooJyZjGKLC4mI3yt_dJ6weAVK7rHBK4cCGwpIv83NIpJQhO6qjg"
+              target="_blank"
+              rel="noopener"
+            >Uber Eats</a>
+            or
+            <a
+              href="https://www.skipthedishes.com/suzettes-cafe-kingsway"
+              target="_blank"
+              rel="noopener"
+            >SkipTheDishes</a>.
+            For pickup orders, use our <a href="order.html">online ordering page</a>.
+          </p>
+
+          <div class="tips-box tips-box--page">
+            <h4>Visit Tips</h4>
+            <ul>
+              <li><strong>Hours:</strong> Mon–Fri 7:00 AM – 3:00 PM. Closed Sat–Sun.</li>
+              <li><strong>Pickup:</strong> Order ahead on our <a href="order.html">Order Online</a> page; pay at the counter.</li>
+              <li><strong>Catering / large orders:</strong> Call or email for quotes and availability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="map-placeholder">
+          <iframe
+            title="Suzette's Café Map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+            src="https://www.google.com/maps?q=Suzette%27s%20Cafe%2C%201530%20Kingsway%20Ave%20%23205%2C%20Port%20Coquitlam%2C%20BC%20V3C%206G5&output=embed">
+          </iframe>
+
+          <a
+            class="map-directions"
+            href="https://www.google.com/maps/dir//Suzette's+Cafe,+1530+Kingsway+Ave+%23205,+Port+Coquitlam,+BC+V3C+6G5/"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Directions →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Suzette's Café · Port Coquitlam, BC</p>
+      <p class="footer-sub">Online ordering portal prototype.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

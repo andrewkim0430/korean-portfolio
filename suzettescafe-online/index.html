@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Suzette's Café – Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="images/suzettes_logo_upscaled.png" alt="Suzette's Café logo">
+        <span>Suzette's Café</span>
+      </a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="account.html" id="nav-account">Account</a></li>
+          <li><a href="#" id="nav-logout" style="display:none;">Log Out</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO SECTION -->
+    <section class="hero hero-home">
+      <div class="container hero-home-inner">
+        <div class="hero-home-text">
+          <p class="hero-pill">Port Coquitlam · BC</p>
+          <h1>A Little Café with a Big Heart</h1>
+          <p class="hero-text">
+            Order ahead online for pickup at Suzette’s Café. Enjoy handcrafted sandwiches,
+            Daily specials, and baked goods in a cozy neighbourhood spot.
+          </p>
+
+          <div class="hero-actions">
+            <a href="order.html" class="btn-primary">Order Online</a>
+            <a href="contact.html" class="btn-outline">View Hours &amp; Location</a>
+          </div>
+
+          <div class="hero-tags">
+            <span>Order ahead for pickup</span>
+            <span>Locally owned café</span>
+          </div>
+
+          <!-- Delivery logos row -->
+          <div class="delivery-row">
+            <span>Also available on</span>
+
+            <a
+              href="https://www.ubereats.com/ca/store/suzettes-cafe/ObRweIRmX4KIFZy8pAsAPQ?srsltid=AfmBOooJyZjGKLC4mI3yt_dJ6weAVK7rHBK4cCGwpIv83NIpJQhO6qjg"
+              class="delivery-logo"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/ubereats.jpg" alt="Order on Uber Eats">
+            </a>
+
+            <a
+              href="https://www.skipthedishes.com/suzettes-cafe-kingsway"
+              class="delivery-logo"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/skipthedishes.jpg" alt="Order on SkipTheDishes">
+            </a>
+          </div>
+          <!-- END delivery logos row -->
+        </div>
+
+        <div class="hero-home-side">
+          <div class="hero-card hero-card-compact">
+            <h2>Hours of Operation</h2>
+            <p><strong>Mon–Fri:</strong> 7:00 AM – 3:00 PM</p>
+            <p><strong>Sat–Sun:</strong> Closed</p>
+            <p class="hero-note">
+              Pickup orders are usually ready in 10–15 minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE ROW -->
+
+
+    <!-- WHY ORDER ONLINE -->
+    <section class="section muted">
+      <div class="container about-layout">
+        <div>
+          <h2>Why Order Ahead?</h2>
+          <p class="section-subtitle">
+            This online portal is built to make Suzette’s Café easier to visit on busy days.
+          </p>
+          <p>
+            Place your order online, choose a pickup time, and we’ll have everything
+            ready at the counter. No waiting on the phone and no surprise line-ups
+            when you just want your usual latte and crêpe.
+          </p>
+        </div>
+
+        <div class="about-highlight">
+          <h3>Benefits for Guests</h3>
+          <ul>
+            <li>Skip phone calls and place your order any time.</li>
+            <li>Know your total before you arrive.</li>
+            <li>Perfect for regular morning or lunch routines.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDERING TIPS -->
+    <section class="section muted">
+      <div class="container">
+        <h2>Ordering Tips</h2>
+        <p class="section-subtitle">Quick things to know before you order.</p>
+        <div class="tips-box tips-box--page">
+          <h4>Before you order</h4>
+          <ul>
+            <li><strong>Pickup only:</strong> Order online for pickup at the café; pay at the counter when you arrive.</li>
+            <li><strong>Breakfast:</strong> Served until 11:00 AM. <strong>Daily specials:</strong> from 11:00 AM.</li>
+            <li><strong>Combos:</strong> Sandwiches and wraps can be ordered as a combo (small soup/chili or Caesar/garden salad).</li>
+            <li><strong>Catering:</strong> Minimum order $90; some items require a call. <a href="contact.html">Contact us</a> for details.</li>
+            <li><strong>Delivery:</strong> Use <a href="https://www.ubereats.com/ca/store/suzettes-cafe/ObRweIRmX4KIFZy8pAsAPQ" target="_blank" rel="noopener">Uber Eats</a> or <a href="https://www.skipthedishes.com/suzettes-cafe-kingsway" target="_blank" rel="noopener">SkipTheDishes</a> for delivery.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMPLE CALL TO ACTION -->
+    <section class="section">
+      <div class="container home-cta">
+        <div>
+          <h2>Ready to place an order?</h2>
+          <p class="section-subtitle">
+            Build your order, select a pickup time, and pay at the counter when you get here.
+          </p>
+        </div>
+        <div>
+          <a href="order.html" class="btn-primary">Go to Online Ordering</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Suzette's Café · Port Coquitlam, BC</p>
+      <p class="footer-sub">Online ordering portal prototype.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
